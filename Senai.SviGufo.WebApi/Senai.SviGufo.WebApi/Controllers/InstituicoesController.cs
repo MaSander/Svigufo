@@ -13,7 +13,7 @@ namespace Senai.SviGufo.WebApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class InstituicaoController : ControllerBase
+    public class InstituicoesController : ControllerBase
     {
         private IInstituicaoRepository InstituicaoRepository { get; set; }
 
@@ -47,17 +47,7 @@ namespace Senai.SviGufo.WebApi.Controllers
         [HttpPost]
         public IActionResult Post(InstituicaoDomain instituicao)
         {
-            try
-            {
-                InstituicaoRepository.Cadastrar(instituicao);
-
-                return Ok();
-            }
-            catch
-            {
-                return BadRequest();
-            }
-            
+            InstituicaoRepository.Cadastrar(instituicao);
 
             return Ok();
         }
